@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terrn Layer Type Icons - Final Approved Design</title>
+  <style>
+    :root {
+      --bg-surface-0: #0b0f17;
+      --bg-surface-1: #131b26;
+      --bg-surface-2: #1b2636;
+      --border-color: #243447;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --arc-blue: #38bdf8;
+      --electric: #00f0ff;
+      --accent-pink: #f43f5e;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --purple: #a855f7;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    [data-theme="light"] {
+      --bg-surface-0: #e4ebf5;
+      --bg-surface-1: #f3f6fb;
+      --bg-surface-2: #ffffff;
+      --border-color: #c9d6e4;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --arc-blue: #0284c7;
+      --electric: #0099b8;
+      --accent-pink: #e11d48;
+      --green: #059669;
+      --amber: #d97706;
+      --purple: #9333ea;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-surface-0);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 32px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      background: var(--bg-surface-1);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .section {
+      margin-bottom: 32px;
+      background: var(--bg-surface-1);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: color-mix(in srgb, var(--green) 15%, transparent);
+      color: var(--green);
+      border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .icon-card {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .icon-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .icon-name {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .icon-badge {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .preview-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .size-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .size-label {
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    /* Exact layer-card chip replica from layer-list.css */
+    .layer-chip-preview {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background: color-mix(in srgb, var(--electric) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--electric) 20%, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .layer-chip-preview svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    [data-theme='light'] .layer-chip-preview svg {
+      filter: brightness(0.5) saturate(1.2);
+    }
+
+    .card-preview-container {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mock-layer-card {
+      background: var(--bg-surface-1);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .mock-card-name {
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .mock-card-meta {
+      color: var(--text-secondary);
+      font-size: 11px;
+    }
+
+    svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .svg-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      background: color-mix(in srgb, var(--bg-surface-0) 50%, transparent);
+      padding: 8px;
+      border-radius: 4px;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>Terrn Layer Type Icons — Final Approved Design System</h1>
+        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+          All 5 layer types finalized and ready for implementation review
+        </div>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark / Light Mode</button>
+    </div>
+
+    <!-- 1. FULL SIMULATED LAYER STACK -->
+    <div class="section">
+      <div class="section-title">
+        Layer Panel Stack Simulation (All 5 Types Together)
+        <span class="tag">Final Palette & Glyphs</span>
+      </div>
+      <div class="section-desc">
+        How the 5 approved layer type icons render in context inside the layer cards:
+      </div>
+      <div class="card-preview-container" style="max-width: 540px;">
+        <!-- Point -->
+        <div class="mock-layer-card">
+          <div class="layer-chip-preview">
+            <svg viewBox="0 0 24 24" style="color: #f59e0b;">
+              <circle cx="12" cy="6" r="2.5" fill="currentColor" stroke="none" />
+              <circle cx="6" cy="17" r="2.5" fill="currentColor" stroke="none" />
+              <circle cx="18" cy="15" r="2.5" fill="currentColor" stroke="none" />
+            </svg>
+          </div>
+          <div class="mock-card-name">Point: weather_stations.geojson</div>
+          <span class="mock-card-meta">53,316 feat</span>
+        </div>
+        <!-- Line -->
+        <div class="mock-layer-card">
+          <div class="layer-chip-preview">
+            <svg viewBox="0 0 24 24" style="stroke: #10b981;">
+              <path d="M3 17h6l6-10h6" />
+            </svg>
+          </div>
+          <div class="mock-card-name">Line: transit_corridors.geojson</div>
+          <span class="mock-card-meta">145 feat</span>
+        </div>
+        <!-- Polygon -->
+        <div class="mock-layer-card">
+          <div class="layer-chip-preview">
+            <svg viewBox="0 0 24 24" style="stroke: #38bdf8;">
+              <path d="M5 6l13-2 2 12-8 4-8-5z" />
+            </svg>
+          </div>
+          <div class="mock-card-name">Polygon: municipal_parcels.geojson</div>
+          <span class="mock-card-meta">2,299 feat</span>
+        </div>
+        <!-- Raster -->
+        <div class="mock-layer-card">
+          <div class="layer-chip-preview">
+            <svg viewBox="0 0 24 24" style="stroke: var(--accent-pink); color: var(--accent-pink);">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="m3 17 5-5 4 4 5-5 4 4" />
+              <circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </div>
+          <div class="mock-card-name">Raster: sentinel2_ortho.tif</div>
+          <span class="mock-card-meta">GeoTIFF</span>
+        </div>
+        <!-- Tabular -->
+        <div class="mock-layer-card">
+          <div class="layer-chip-preview">
+            <svg viewBox="0 0 24 24" style="stroke: #a855f7;">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M12 3v18M3 9h18M3 15h18" />
+            </svg>
+          </div>
+          <div class="mock-card-name">Tabular: census_demographics.csv</div>
+          <span class="mock-card-meta">Table (no geom)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. SPECIFICATION CARDS FOR EACH ICON -->
+    <div class="section">
+      <div class="section-title">
+        Approved Icon Specifications
+      </div>
+      <div class="icon-grid">
+
+        <!-- 1. Point -->
+        <div class="icon-card">
+          <div class="icon-header">
+            <span class="icon-name">point (Tri-Point Scatter)</span>
+            <span class="tag">Approved</span>
+          </div>
+          <div class="preview-row">
+            <div class="size-box">
+              <div class="size-label">14px (Card)</div>
+              <div class="layer-chip-preview">
+                <svg viewBox="0 0 24 24" style="color: #f59e0b;">
+                  <circle cx="12" cy="6" r="2.5" fill="currentColor" stroke="none" />
+                  <circle cx="6" cy="17" r="2.5" fill="currentColor" stroke="none" />
+                  <circle cx="18" cy="15" r="2.5" fill="currentColor" stroke="none" />
+                </svg>
+              </div>
+            </div>
+            <div class="size-box">
+              <div class="size-label">24px (Native)</div>
+              <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; color: #f59e0b;">
+                <circle cx="12" cy="6" r="2.5" fill="currentColor" stroke="none" />
+                <circle cx="6" cy="17" r="2.5" fill="currentColor" stroke="none" />
+                <circle cx="18" cy="15" r="2.5" fill="currentColor" stroke="none" />
+              </svg>
+            </div>
+          </div>
+          <div class="svg-code">point: [
+  ['circle', { cx: 12, cy: 6, r: 2.5, fill: 'currentColor', stroke: 'none' }],
+  ['circle', { cx: 6, cy: 17, r: 2.5, fill: 'currentColor', stroke: 'none' }],
+  ['circle', { cx: 18, cy: 15, r: 2.5, fill: 'currentColor', stroke: 'none' }],
+]</div>
+        </div>
+
+        <!-- 2. Line -->
+        <div class="icon-card">
+          <div class="icon-header">
+            <span class="icon-name">line (Survey Terrace L2)</span>
+            <span class="tag">Approved</span>
+          </div>
+          <div class="preview-row">
+            <div class="size-box">
+              <div class="size-label">14px (Card)</div>
+              <div class="layer-chip-preview">
+                <svg viewBox="0 0 24 24" style="stroke: #10b981;">
+                  <path d="M3 17h6l6-10h6" />
+                </svg>
+              </div>
+            </div>
+            <div class="size-box">
+              <div class="size-label">24px (Native)</div>
+              <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #10b981;">
+                <path d="M3 17h6l6-10h6" />
+              </svg>
+            </div>
+          </div>
+          <div class="svg-code">line: [
+  p('M3 17h6l6-10h6'),
+]</div>
+        </div>
+
+        <!-- 3. Polygon -->
+        <div class="icon-card">
+          <div class="icon-header">
+            <span class="icon-name">polygon (Asymmetric Boundary 1A)</span>
+            <span class="tag">Approved</span>
+          </div>
+          <div class="preview-row">
+            <div class="size-box">
+              <div class="size-label">14px (Card)</div>
+              <div class="layer-chip-preview">
+                <svg viewBox="0 0 24 24" style="stroke: #38bdf8;">
+                  <path d="M5 6l13-2 2 12-8 4-8-5z" />
+                </svg>
+              </div>
+            </div>
+            <div class="size-box">
+              <div class="size-label">24px (Native)</div>
+              <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #38bdf8;"><path d="M5 6l13-2 2 12-8 4-8-5z" /></svg>
+            </div>
+          </div>
+          <div class="svg-code">polygon: [
+  p('M5 6l13-2 2 12-8 4-8-5z'),
+]</div>
+        </div>
+
+        <!-- 4. Raster -->
+        <div class="icon-card">
+          <div class="icon-header">
+            <span class="icon-name">raster (Satellite Imagery R2)</span>
+            <span class="tag">Approved</span>
+          </div>
+          <div class="preview-row">
+            <div class="size-box">
+              <div class="size-label">14px (Card)</div>
+              <div class="layer-chip-preview">
+                <svg viewBox="0 0 24 24" style="stroke: var(--accent-pink); color: var(--accent-pink);">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="m3 17 5-5 4 4 5-5 4 4" />
+                  <circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none" />
+                </svg>
+              </div>
+            </div>
+            <div class="size-box">
+              <div class="size-label">24px (Native)</div>
+              <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: var(--accent-pink); color: var(--accent-pink);">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="m3 17 5-5 4 4 5-5 4 4" />
+                <circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none" />
+              </svg>
+            </div>
+          </div>
+          <div class="svg-code">raster: [
+  ['rect', { x: 3, y: 3, width: 18, height: 18, rx: 2 }],
+  p('m3 17 5-5 4 4 5-5 4 4'),
+  ['circle', { cx: 8, cy: 8, r: 1.5, fill: 'currentColor', stroke: 'none' }],
+]</div>
+        </div>
+
+        <!-- 5. Tabular Data -->
+        <div class="icon-card">
+          <div class="icon-header">
+            <span class="icon-name">table (Tabular Data T1)</span>
+            <span class="tag">Approved</span>
+          </div>
+          <div class="preview-row">
+            <div class="size-box">
+              <div class="size-label">14px (Card)</div>
+              <div class="layer-chip-preview">
+                <svg viewBox="0 0 24 24" style="stroke: #a855f7;">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M12 3v18M3 9h18M3 15h18" />
+                </svg>
+              </div>
+            </div>
+            <div class="size-box">
+              <div class="size-label">24px (Native)</div>
+              <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #a855f7;">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M12 3v18M3 9h18M3 15h18" />
+              </svg>
+            </div>
+          </div>
+          <div class="svg-code">// Reuses table already in src/shared/icons.ts
+table: [
+  p('M12 3v18'),
+  ['rect', { width: 18, height: 18, x: 3, y: 3, rx: 2 }],
+  p('M3 9h18'),
+  p('M3 15h18'),
+]</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      if (current === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }
+  </script>
+</body>
+</html>

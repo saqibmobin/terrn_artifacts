@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terrn — Visual Design Moodboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --void: #050D1A;
+      --deep-navy: #0A1628;
+      --navy-mid: #0F2240;
+      --slate: #1E2A3A;
+      --steel: #334155;
+      --mist: #94A3B8;
+      --ice-white: #F1F5F9;
+      --electric: #2563EB;
+      --arc-blue: #60A5FA;
+      --amber: #F59E0B;
+      --green: #10B981;
+      --red: #EF4444;
+
+      --bg: var(--void);
+      --surface: var(--deep-navy);
+      --surface-raised: var(--navy-mid);
+      --border: var(--slate);
+      --border-strong: var(--steel);
+      --text-primary: var(--ice-white);
+      --text-secondary: var(--mist);
+      --text-data: var(--amber);
+      --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="light"] {
+      --bg: #E4EBF5;
+      --surface: #F3F6FB;
+      --surface-raised: #FFFFFF;
+      --border: #C8D4E6;
+      --border-strong: #9DB0CC;
+      --text-primary: #0F172A;
+      --text-secondary: #4A5A72;
+      --amber: #D97706;
+      --text-data: var(--amber);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 0 0 80px 0;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 52px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .theme-btn {
+      padding: 6px 14px;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .theme-btn:hover { background: rgba(96,165,250,0.08); color: var(--text-primary); }
+
+    .hero-wrap {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+    }
+
+    .hero-header {
+      margin-bottom: 32px;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--arc-blue);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero-title {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      margin-bottom: 10px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 760px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 900px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+    .image-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .image-caption {
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+    .image-caption strong { color: var(--text-primary); }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .pillar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pillar-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--electric);
+      text-transform: uppercase;
+    }
+    .pillar-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .telemetry-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .telemetry-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .telemetry-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+    .telemetry-val {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--text-data);
+      font-weight: 600;
+    }
+
+    .palette-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .color-chip {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .color-sample {
+      height: 48px;
+      width: 100%;
+    }
+    .color-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 8px 4px 2px;
+      color: var(--text-primary);
+    }
+    .color-hex {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-secondary);
+      padding-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="#" class="brand">
+      <svg width="22" height="24" viewBox="0 0 38 42" fill="none">
+        <path d="M19 0L19 42L13 20.6912L19 0Z" fill="#3B4D67"/>
+        <path d="M13.3255 21L19 42L0 21H13.3255Z" fill="#152F59"/>
+        <path d="M13.3255 21L19 3.57628e-07L0 21H13.3255Z" fill="#275292"/>
+        <path d="M19 0L19 42L25 20.6912L19 0Z" fill="#F1F5F9"/>
+        <path d="M24.6745 21L19 42L38 21H24.6745Z" fill="#2563EB"/>
+        <path d="M24.6745 21L19 3.57628e-07L38 21H24.6745Z" fill="#60A5FA"/>
+        <circle cx="19" cy="21" r="2" fill="#F59E0B"/>
+        <circle cx="19" cy="21" r="3.75" stroke="#F59E0B" stroke-opacity="0.4" stroke-width="0.5"/>
+      </svg>
+      <span>Terrn</span>
+      <span style="font-family: var(--mono); font-size: 11px; color: var(--arc-blue); background: rgba(37,99,235,0.15); padding: 2px 8px; border-radius: 20px;">MOODBOARD</span>
+    </a>
+    <button class="theme-btn" id="themeToggle">
+      <span id="themeText">Toggle Light Mode</span>
+    </button>
+  </header>
+
+  <main class="hero-wrap">
+
+    <div class="hero-header">
+      <div class="hero-eyebrow">Aesthetic Vision & Spatial Metaphor</div>
+      <h1 class="hero-title">Industrial Utilitarian Workstation</h1>
+      <p class="hero-sub">
+        A visual moodboard for Terrn (`tern_poc`) — professional cartographic software meets precision developer tooling. Floating frosted-glass instruments over a 60 FPS WebGL spatial universe.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      <div class="image-card">
+        <img src="./terrn_visual_moodboard.jpg" alt="Terrn Visual Design Moodboard">
+        <div class="image-caption">
+          <strong>Aesthetic Moodboard Collage:</strong> 6-facet directional diamond mark, glowing amber spatial telemetry, floating frosted glass instrument panels, and 3D WebGL topographic vector flows.
+        </div>
+      </div>
+
+      <div class="image-card">
+        <img src="./terrn_ui_atmosphere.jpg" alt="Terrn UI Atmosphere">
+        <div class="image-caption">
+          <strong>UI Chrome Atmosphere:</strong> Frosted-glass panel instruments (`rgba(10,22,40,0.96)`), 48px right rail, precision range sliders with knockout rings, and 60 FPS WebGL vector geometry.
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Strip -->
+    <div class="telemetry-strip">
+      <div class="telemetry-item">
+        <div class="telemetry-label">Active Coordinate</div>
+        <div class="telemetry-val">37.7749° N, 122.4194° W</div>
+      </div>
+      <div class="telemetry-item">
+        <div class="telemetry-label">Engine Rendering</div>
+        <div class="telemetry-val">60.0 FPS · WEBGL 2.0</div>
+      </div>
+      <div class="telemetry-item">
+        <div class="telemetry-label">Ingested Vector Count</div>
+        <div class="telemetry-val">1,429,850 POINTS</div>
+      </div>
+      <div class="telemetry-item">
+        <div class="telemetry-label">Telemetry Signal</div>
+        <div class="telemetry-val" style="color: #10B981;">● DUCKDB-WASM READY</div>
+      </div>
+    </div>
+
+    <!-- Aesthetic Pillars -->
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-tag">Pillar 01</div>
+        <div class="pillar-title">The Spatial Void</div>
+        <div class="pillar-desc">
+          Deep navy base canvas (#050D1A) where high-density point clouds, bathymetric lines, and 3D building extrusions glow with electric radiance. The map canvas is the product; chrome floats above it.
+        </div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-tag">Pillar 02</div>
+        <div class="pillar-title">Floating Cockpit Chrome</div>
+        <div class="pillar-desc">
+          Frosted acrylic glass panels (16px backdrop blur) with crisp 1px precision steel borders (#1E2A3A). Depth is delivered through background tint and border contrast rather than muddy drop shadows.
+        </div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-tag">Pillar 03</div>
+        <div class="pillar-title">The Sacred Amber Signal</div>
+        <div class="pillar-desc">
+          Amber (#F59E0B dark / #D97706 light) is strictly quarantined for live telemetry, feature counts, and coordinate readouts. Never used for general buttons or hovers, giving it instant signal clarity.
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette Strip -->
+    <div class="palette-strip">
+      <div class="color-chip">
+        <div class="color-sample" style="background: #050D1A;"></div>
+        <div class="color-name">--void</div>
+        <div class="color-hex">#050D1A</div>
+      </div>
+      <div class="color-chip">
+        <div class="color-sample" style="background: #0A1628;"></div>
+        <div class="color-name">--deep-navy</div>
+        <div class="color-hex">#0A1628</div>
+      </div>
+      <div class="color-chip">
+        <div class="color-sample" style="background: #2563EB;"></div>
+        <div class="color-name">--electric</div>
+        <div class="color-hex">#2563EB</div>
+      </div>
+      <div class="color-chip">
+        <div class="color-sample" style="background: #60A5FA;"></div>
+        <div class="color-name">--arc-blue</div>
+        <div class="color-hex">#60A5FA</div>
+      </div>
+      <div class="color-chip">
+        <div class="color-sample" style="background: #F59E0B;"></div>
+        <div class="color-name">--amber</div>
+        <div class="color-hex">#F59E0B</div>
+      </div>
+      <div class="color-chip">
+        <div class="color-sample" style="background: #10B981;"></div>
+        <div class="color-name">--green</div>
+        <div class="color-hex">#10B981</div>
+      </div>
+      <div class="color-chip">
+        <div class="color-sample" style="background: #EF4444;"></div>
+        <div class="color-name">--red</div>
+        <div class="color-hex">#EF4444</div>
+      </div>
+      <div class="color-chip">
+        <div class="color-sample" style="background: #F1F5F9;"></div>
+        <div class="color-name">--ice-white</div>
+        <div class="color-hex">#F1F5F9</div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const btn = document.getElementById('themeToggle');
+    const label = document.getElementById('themeText');
+    const html = document.documentElement;
+
+    btn.addEventListener('click', () => {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      const target = isDark ? 'light' : 'dark';
+      html.setAttribute('data-theme', target);
+      label.textContent = isDark ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+    });
+  </script>
+</body>
+</html>
